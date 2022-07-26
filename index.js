@@ -4,6 +4,10 @@
 // encapsulation
 // method chaining
 
+// ----------------------------------------------------------
+
+//? SYNTACTIC SUGAR
+
 class User {
   constructor(name, email, id) {
     this.name = name;
@@ -32,7 +36,7 @@ class User {
 
 class Admin extends User {
   deleteUser(user) {
-    users = users.filter((u) => u.name !== user.name);
+    users = users.filter((u) => u.id !== user.id);
   }
 }
 
@@ -42,11 +46,46 @@ const admin = new Admin("Admin", "admin@gmail.com", 9999999);
 
 let users = [userOne, userTwo, admin];
 
-userOne.login();
-userTwo.logout();
-
-userTwo.login().clockInNumberInWeek().clockInNumberInWeek().logout();
+// userTwo.clockInNumberInWeek().clockInNumberInWeek();
 
 admin.deleteUser(userOne);
 
-console.log(users);
+// ----------------------------------------------------------
+
+//? PROTOTYPE
+
+function Users(name, email, id) {
+  this.name = name;
+  this.email = email;
+  this.id = id;
+  this.loggedIn = false;
+}
+
+Users.prototype.login = function () {
+  this.loggedIn = true;
+  console.log(`${this.name} is logged in`);
+};
+
+Users.prototype.logout = function () {
+  this.loggedIn = false;
+  console.log(`${this.name} is logged out`);
+};
+
+//? inherits all functionality from User #
+Admins.prototype = Object.create(Users.prototype);
+
+//? binds the Admins to Users function and inherits arguments #
+function Admins(...args) {
+  Users.apply(this, args);
+}
+
+const user1 = new Users("Jenny", "jenny@gmail.com", 22232221);
+const user2 = new Users("Steve", "steve@gmail.com", 99909990);
+
+const admin1 = new Admins("Admin", "admin@email.com", 99999999); //? #
+
+// user1.login();
+// user2.logout();
+
+admin1.login();
+admin1.logout();
