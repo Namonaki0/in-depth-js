@@ -1,1 +1,1 @@
-## Go over specific important concepts in JavaScript and fill any gaps in knowledge.
+### Go over specific important concepts in JavaScript and fill any gaps in knowledge.
