@@ -1,91 +1,81 @@
-//? OOP
+//? PROTOTYPE
 
-// object literals
-// encapsulation
-// method chaining
+// const output = document.getElementById("output");
 
-// ----------------------------------------------------------
+// function User(name, email, id) {
+//   this.name = name;
+//   this.email = email;
+//   this.id = id;
+//   this.clockedIn = false;
+// }
 
-//? SYNTACTIC SUGAR
+// User.prototype.clockIn = function () {
+//   this.clockedIn = true;
+//   return this;
+// };
+
+// function Admin(...args) {
+//   User.apply(this, args);
+// }
+
+// Admin.prototype = Object.create(User.prototype);
+
+// User.prototype.displayDetails = function () {
+//   output.innerHTML += `${this.clockedIn ? "CLOCKED IN" : "CLOCKED OUT"} - ${
+//     this.name
+//   } with email ${this.email} is logged in with ID: ${this.id} <br /> `;
+// };
+
+// const userOne = new User("Steve", "steve@mail.com", 3323123);
+// const userTwo = new User("Mike", "mike@mail.com", 3323114);
+// const userThree = new User("David", "david@mail.com", 3323167);
+
+// const mainAdmin = new Admin("Craig", "craig@mail.com", 9999999);
+
+// userOne.clockIn().displayDetails();
+
+// mainAdmin.clockIn().displayDetails();
+
+// #######################################
+
+//? ES6 CLASSES
+
+const output = document.getElementById("output");
 
 class User {
   constructor(name, email, id) {
     this.name = name;
     this.email = email;
     this.id = id;
-    this.clockIn = 0;
+    this.clockedIn = false;
   }
-  login() {
-    console.log(`${this.name} just logged in with email ${this.email}`);
-    return this;
-  }
-  logout() {
-    console.log(`${this.name} just logged out with email ${this.email}`);
-    return this;
-  }
-  clockInNumberInWeek() {
-    this.clockIn++;
-    console.log(
-      `${this.name} clocked in ${
-        this.clockIn < 2 ? `${this.clockIn} time` : `${this.clockIn} times`
-      } this week with ID: ${this.id}`
-    );
+  clockIn() {
+    this.clockedIn = true;
+    output.innerHTML += `${this.clockedIn ? "CLOCKED IN" : "CLOCKED OUT"} ${
+      this.name
+    } is signed in with email ${this.email} and ID: ${this.id} <br />`;
     return this;
   }
 }
 
 class Admin extends User {
-  deleteUser(user) {
-    users = users.filter((u) => u.id !== user.id);
+  clockOut() {
+    this.clockedIn = false;
+    output.innerHTML = `${this.name} clocked everyone out`;
+    return this;
   }
 }
 
-const userOne = new User("Mike", "mike@gmail.com", 1223123);
-const userTwo = new User("Sophie", "sophie@gmail.com", 3443223);
-const admin = new Admin("Admin", "admin@gmail.com", 9999999);
+const userOne = new User("Steve", "steve@mail.com", 3323123);
+const userTwo = new User("Mike", "mike@mail.com", 3323114);
+const userThree = new User("David", "david@mail.com", 3323167);
 
-let users = [userOne, userTwo, admin];
+const mainAdmin = new Admin("Craig", "craig@mail.com", 9999999);
 
-// userTwo.clockInNumberInWeek().clockInNumberInWeek();
+userOne.clockIn();
+userTwo.clockIn();
+mainAdmin.clockIn().clockOut();
 
-admin.deleteUser(userOne);
+const { name, email, id } = mainAdmin;
 
-// ----------------------------------------------------------
-
-//? PROTOTYPE
-
-function Users(name, email, id) {
-  this.name = name;
-  this.email = email;
-  this.id = id;
-  this.loggedIn = false;
-}
-
-Users.prototype.login = function () {
-  this.loggedIn = true;
-  console.log(`${this.name} is logged in`);
-};
-
-Users.prototype.logout = function () {
-  this.loggedIn = false;
-  console.log(`${this.name} is logged out`);
-};
-
-//? inherits all functionality from User #
-Admins.prototype = Object.create(Users.prototype);
-
-//? binds the Admins to Users function and inherits arguments #
-function Admins(...args) {
-  Users.apply(this, args);
-}
-
-const user1 = new Users("Jenny", "jenny@gmail.com", 22232221);
-const user2 = new Users("Steve", "steve@gmail.com", 99909990);
-
-const admin1 = new Admins("Admin", "admin@email.com", 99999999); //? #
-
-// user1.login();
-// user2.logout();
-
-admin1.login();
-admin1.logout();
+console.log(`ADMIN: ${name} | EMAIL: ${email} | ID: ${id}`);
