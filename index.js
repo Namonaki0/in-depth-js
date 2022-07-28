@@ -64,6 +64,11 @@ class Admin extends User {
     output.innerHTML = `${this.name} clocked everyone out`;
     return this;
   }
+  deleteUser(user1, user2) {
+    usersArrayDuplicate = usersArrayDuplicate.filter(
+      (u) => u.id !== user1.id && u.id !== user2.id
+    );
+  }
 }
 
 const userOne = new User("Steve", "steve@mail.com", 3323123);
@@ -72,10 +77,23 @@ const userThree = new User("David", "david@mail.com", 3323167);
 
 const mainAdmin = new Admin("Craig", "craig@mail.com", 9999999);
 
+let usersArray = [userOne, userTwo, userThree, mainAdmin];
+let usersArrayDuplicate = [...usersArray];
+
+const userNamesArray = ["John"];
+
+userNamesArray.push(userOne.name, userTwo.name, userThree.name, mainAdmin.name);
+
+console.log(userNamesArray);
+
+mainAdmin.deleteUser(userOne, userTwo);
+
 userOne.clockIn();
 userTwo.clockIn();
-mainAdmin.clockIn().clockOut();
+mainAdmin.clockIn();
 
 const { name, email, id } = mainAdmin;
+
+console.log(usersArrayDuplicate);
 
 console.log(`ADMIN: ${name} | EMAIL: ${email} | ID: ${id}`);
