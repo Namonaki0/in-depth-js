@@ -71,29 +71,66 @@ class Admin extends User {
   }
 }
 
-const userOne = new User("Steve", "steve@mail.com", 3323123);
-const userTwo = new User("Mike", "mike@mail.com", 3323114);
-const userThree = new User("David", "david@mail.com", 3323167);
+const userOne = new User("Steve", "steve@mail.com", "#3323123$");
+const userTwo = new User("Mike", "mike@mail.com", "#3323114");
+const userThree = new User("David", "david@mail.com", "33231$67");
 
-const mainAdmin = new Admin("Craig", "craig@mail.com", 9999999);
+const mainAdmin = new Admin("Craig", "craig@mail.com", "$9999#999");
 
 let usersArray = [userOne, userTwo, userThree, mainAdmin];
 let usersArrayDuplicate = [...usersArray];
 
-const userNamesArray = ["John"];
+const userNamesArray = [];
 
-userNamesArray.push(userOne.name, userTwo.name, userThree.name, mainAdmin.name);
+userNamesArray.push(userOne, userTwo, userThree, mainAdmin);
 
 console.log(userNamesArray);
 
+// #######################
+//? CONTROL FLOW - IF STATEMENT
+
+usersArray.filter((user) => {
+  if (user.id.includes("#") && user.id.includes("$")) {
+    console.log(`${user.name}: ${user.id} - STRONG ID`);
+  }
+});
+
+//? CONTROL FLOW - WHILE LOOP
+let i = 0;
+let counter = 1;
+
+while (i < userNamesArray.length) {
+  console.log(`Staff member number ${counter++}: ${userNamesArray[i].name}`);
+  i++;
+}
+// #######################
+
+//? MAIN ADMIN IS ABLE TO DELETE USERS
 mainAdmin.deleteUser(userOne, userTwo);
 
 userOne.clockIn();
 userTwo.clockIn();
 mainAdmin.clockIn();
 
+// #######################
 const { name, email, id } = mainAdmin;
 
 console.log(usersArrayDuplicate);
+// #######################
 
 console.log(`ADMIN: ${name} | EMAIL: ${email} | ID: ${id}`);
+
+// #######################
+//? LOCAL STORAGE
+
+const promptArray = [];
+
+const addNameFunc = () => {
+  const promptData = prompt("enter name");
+
+  promptArray.push(promptData);
+  console.log(promptArray);
+  localStorage.setItem("name", JSON.stringify(promptArray));
+};
+
+// #######################
