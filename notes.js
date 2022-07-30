@@ -7,6 +7,33 @@
 
 // ----------------------------------------------------------
 
+//? TERMINOLOGY
+
+// hoisting - the way functions are placed at top of document (over-simplification).
+// function declarations can be invoked before initialization as function are placed at the top but function expressions can't.
+
+// -----------------
+
+// function declaration:
+
+// function sayHello(*) {    * ----> parameters
+//   console.log("hello")
+// }
+
+// sayHello(*);     * ----> arguments
+
+// -----------------
+
+// function expression:
+
+// const sayHello = function (*) {    * ----> parameters
+//   console.log("hello");
+// };
+
+// sayHello(*);     * ----> arguments
+
+// ----------------------------------------------------------
+
 //? SYNTACTIC SUGAR
 
 class User {
@@ -167,3 +194,28 @@ firstUser.login().screenMessage().logout().screenMessage();
 mainAdmin.deleteUser(secondUser);
 
 console.log(usersArrDup);
+
+// #######################################################
+
+const promptData = prompt("enter radius");
+
+const calcArea = function (radius) {
+  return 3.15 * radius ** 2;
+};
+
+const area = calcArea(promptData);
+
+document.body.innerHTML = `<h1>${area}</h1>`;
+
+// #######################################################
+
+//? CALLBACK FUNCTION - premise
+
+function logIt(myFunc) {
+  let value = 50;
+  myFunc(value);
+}
+
+logIt(function (value) {
+  console.log(value);
+});
