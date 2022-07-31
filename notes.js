@@ -12,6 +12,19 @@
 // hoisting - the way functions are placed at top of document (over-simplification).
 // function declarations can be invoked before initialization as function are placed at the top but function expressions can't.
 
+// global context -> window object (this keyword)
+
+//* PRIMITIVE TYPES
+// numbers, strings, booleans, null, undefined, symbols
+
+//* REFERENCE TYPES
+// all types of objects -> object literals, arrays, functions, dates and all other objects
+
+//* STACK & HEAP -> the way these types are stored in memory
+// primitive types are stored on the stack -> quicker execution but less memory
+// reference types are stored on the heap -> more space available but slower execution -> things like arrays will have a pointer
+// referencing the variable on the stack
+
 // -----------------
 
 // function declaration:
