@@ -25,6 +25,16 @@
 // reference types are stored on the heap -> more space available but slower execution -> things like arrays will have a pointer
 // referencing the variable on the stack
 
+//* DOM
+// root node (html) -> element nodes -> text nodes
+// quering the DOM -> referencing elements in the DOM
+
+// can't use forEach() for HTMLCollection only NodeList -> both can use square bracket notation []
+// nodeLists are returned by the querySelector method
+// get element(s)by -> tagName and classList return HTMLCollections
+
+// textContent shows all text in tag even if hidden (i.e: display: none) -> unlike innerText
+
 // -----------------
 
 // function declaration:
