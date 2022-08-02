@@ -32,8 +32,11 @@
 // can't use forEach() for HTMLCollection only NodeList -> both can use square bracket notation []
 // nodeLists are returned by the querySelector method
 // get element(s)by -> tagName and classList return HTMLCollections
+// convert an HTMLCollection -> Array.from(reference) -> forEach() is now available
 
 // textContent shows all text in tag even if hidden (i.e: display: none) -> unlike innerText
+
+// event bubbling & delegation
 
 // -----------------
 
