@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+
+    <style>
+      #user-form {
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+        max-width: 30vw;
+      }
+
+      input {
+        display: block;
+        margin: 10px;
+      }
+      input:focus {
+        outline: none;
+      }
+
+      .success {
+        border: 2px solid green;
+      }
+      .error {
+        border: 2px solid crimson;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ####################################################### -->
+    <form id="user-form">
+      <input type="text" id="username" />
+      <input type="email" id="email" />
+      <input type="submit" value="submit" />
+    </form>
+    <!-- ####################################################### -->
+    <h1>TEST FORM</h1>
+    <form id="test-form">
+      <input type="text" id="username" />
+      <input type="submit" value="submit" />
+    </form>
+    <div id="result-output"></div>
+    <script src="form.js"></script>
+  </body>
+</html>
