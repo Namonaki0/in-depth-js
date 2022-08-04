@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Interactive Quiz</title>
+  </head>
+  <body>
+    <div class="bg-white py-4 my-4 text-center">
+      <div class="container">
+        <h1 class="text-secondary display-1">Good Luck</h1>
+      </div>
+    </div>
+
+    <div class="py-4 bg-primary">
+      <div class="mx-4">
+        <h2 class="text-white py-2 display-4">Here are your questions:</h2>
+      </div>
+    </div>
+
+    <form class="bg-primary text-light p-4">
+      <div class="my-2">
+        <p class="lead font-weight-normal">1. Question number one</p>
+        <div class="my-2 mx-2 text-white-50">
+          <input type="radio" name="q1" value="A" checked />
+          <label class="form-check-label">Answer number one</label>
+        </div>
+        <div class="my-2 mx-2 text-white-50">
+          <input type="radio" name="q1" value="B" />
+          <label class="form-check-label">Answer number two</label>
+        </div>
+      </div>
+      <div class="my-5">
+        <p class="lead font-weight-normal">2. Question number Two</p>
+        <div class="my-2 mx-1 text-white-50">
+          <input type="radio" name="q2" value="A" checked />
+          <label class="form-check-label">Answer number one</label>
+        </div>
+        <div class="my-2 mx-1 text-white-50">
+          <input type="radio" name="q2" value="B" />
+          <label class="form-check-label">Answer number two</label>
+        </div>
+      </div>
+      <div class="my-5">
+        <p class="lead font-weight-normal">3. Question number Three</p>
+        <div class="my-2 mx-1 text-white-50">
+          <input type="radio" name="q3" value="A" checked />
+          <label class="form-check-label">Answer number one</label>
+        </div>
+        <div class="my-2 mx-1 text-white-50">
+          <input type="radio" name="q3" value="B" />
+          <label class="form-check-label">Answer number two</label>
+        </div>
+      </div>
+      <div class="my-5">
+        <p class="lead font-weight-normal">4. Question number Four</p>
+        <div class="my-2 mx-1 text-white-50">
+          <input type="radio" name="q4" value="A" checked />
+          <label class="form-check-label">Answer number one</label>
+        </div>
+        <div class="my-2 mx-1 text-white-50">
+          <input type="radio" name="q4" value="B" />
+          <label class="form-check-label">Answer number two</label>
+        </div>
+      </div>
+      <div class="my-2">
+        <p class="lead font-weight-normal">5. Question number Five</p>
+        <div class="my-2 mx-1 text-white-50">
+          <input type="radio" name="q5" value="A" checked />
+          <label class="form-check-label">Answer number one</label>
+        </div>
+        <div class="my-2 mx-1 text-white-50">
+          <input type="radio" name="q5" value="B" />
+          <label class="form-check-label">Answer number two</label>
+        </div>
+      </div>
+    </form>
+
+    <script src="app.js"></script>
+  </body>
+</html>
