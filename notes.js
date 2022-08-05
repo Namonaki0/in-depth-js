@@ -9,6 +9,7 @@
 
 //? TERMINOLOGY
 
+// window object (global object)
 // hoisting - the way functions are placed at top of document (over-simplification).
 // function declarations can be invoked before initialization as function are placed at the top but function expressions can't.
 

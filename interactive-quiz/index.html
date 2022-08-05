@@ -13,19 +13,33 @@
     <title>Interactive Quiz</title>
   </head>
   <body>
+    <!-- MAIN HEADER -->
     <div class="bg-white py-4 my-4 text-center">
       <div class="container">
         <h1 class="text-secondary display-1">Good Luck</h1>
       </div>
     </div>
 
-    <div class="py-4 bg-primary">
-      <div class="mx-4">
-        <h2 class="text-white py-2 display-4">Here are your questions:</h2>
+    <!-- SCORE SECTION WILL APPEAR ON FORM SUBMIT -->
+    <div class="score-section text-center bg-light py-4 d-none">
+      <div class="container lead">
+        <p>
+          You got <span class="text-primary display-3 p-2">0%</span> of your
+          answers correctly
+        </p>
+        <p class="score-message d-none text-primary"></p>
       </div>
     </div>
 
-    <form class="bg-primary text-light p-4">
+    <!-- SECONDARY HEADER -->
+    <div class="py-4 bg-primary">
+      <div class="mx-4">
+        <h2 class="text-white pY-2 display-4">Here are your questions:</h2>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <form class="quiz-form bg-primary text-light p-4">
       <div class="my-2">
         <p class="lead font-weight-normal">1. Question number one</p>
         <div class="my-2 mx-2 text-white-50">
@@ -80,6 +94,9 @@
           <input type="radio" name="q5" value="B" />
           <label class="form-check-label">Answer number two</label>
         </div>
+      </div>
+      <div class="submit-btn py-4">
+        <button type="submit" class="btn btn-light">SUBMIT</button>
       </div>
     </form>
 
