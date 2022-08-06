@@ -39,6 +39,12 @@
 
 // event bubbling & delegation
 
+//* ARRAY METHODS
+// filter method is not destructive and returns the array based on a condition
+// map method returns a completely new array
+// reduce method takes 2 params (accumulator and current iteration - (acc, curr)), it returns the accumulation of values - the accumulator tends to be initialized at 0
+// find method returns the first value that passes a condition
+
 // -----------------
 
 // function declaration:
