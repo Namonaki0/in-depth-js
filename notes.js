@@ -44,6 +44,9 @@
 // map method returns a completely new array
 // reduce method takes 2 params (accumulator and current iteration - (acc, curr)), it returns the accumulation of values - the accumulator tends to be initialized at 0
 // find method returns the first value that passes a condition
+// sort method takes two params and evaluates them in order to order the array
+
+// method chaining
 
 // -----------------
 

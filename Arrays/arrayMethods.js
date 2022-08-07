@@ -98,3 +98,60 @@ const markedScores = [50, 70, 15, 45, 10, 92, 67];
 
 const highScore = markedScores.find((score) => score > 80);
 console.log(`HIGHEST SCORE: ${highScore}`);
+
+// #######################################################
+
+//? SORT
+
+const nums = [50, 70, 15, 45, 10, 92, 67];
+
+nums.sort((a, b) => b - a);
+nums.reverse();
+console.log(`SORTED ARRAY: ${nums}`);
+
+// #######################
+
+const playerScores = [
+  { player: "Mark", score: 50 },
+  { player: "Kurt", score: 20 },
+  { player: "Ruth", score: 90 },
+  { player: "Sophie", score: 40 },
+  { player: "Suzan", score: 55 },
+  { player: "Vishal", score: 70 },
+];
+
+//* HIGHEST TO LOWEST SCORE
+playerScores.sort((a, b) => b.score - a.score);
+console.log(playerScores);
+
+// #######################
+
+const playerNames = [
+  "Mark",
+  "Kurt",
+  "Ruth",
+  "Sophie",
+  "Suzan",
+  "Vishal",
+  "George",
+];
+
+playerNames.sort();
+console.log(playerNames);
+
+//? METHOD CHAINING
+
+const currentProducts = [
+  { type: "sweater", price: 250 },
+  { type: "shoes", price: 400 },
+  { type: "shirt", price: 200 },
+  { type: "trousers", price: 320 },
+  { type: "bags", price: 600 },
+  { type: "jackets", price: 1200 },
+];
+
+const promo = currentProducts
+  .filter((product) => product.price > 300)
+  .map((product) => `${product.type} are now £${product.price}`);
+
+console.log(promo);
