@@ -39,6 +39,8 @@
 
 // event bubbling & delegation
 
+// classlist -> classList.contains("class-name") - use with condition
+
 //* ARRAY METHODS
 // filter method is not destructive and returns the array based on a condition
 // map method returns a completely new array
@@ -47,6 +49,9 @@
 // sort method takes two params and evaluates them in order to order the array
 
 // method chaining
+
+//* FORMS
+// <form-reference>.reset() resets all input fields once form is submitted
 
 // -----------------
 

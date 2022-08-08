@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="todo.css" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>TODOs</h1>
+      <form class="search">
+        <label class="search-todo"></label>
+        <input type="text" name="search-todo" />
+      </form>
+    </div>
+    <ul>
+      <li class="inserted-todo">
+        <span>task number one</span><i class="fa-solid fa-trash-can"></i>
+      </li>
+      <li class="inserted-todo">
+        <span>task number two</span><i class="fa-solid fa-trash-can"></i>
+      </li>
+      <li class="inserted-todo">
+        <span>task number three</span><i class="fa-solid fa-trash-can"></i>
+      </li>
+    </ul>
+    <form class="insert">
+      <label class="inserted-todo"></label>
+      <input type="text" name="insert-todo" />
+    </form>
+
+    <script src="todo.js"></script>
+  </body>
+</html>
