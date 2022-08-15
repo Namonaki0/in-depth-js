@@ -53,6 +53,9 @@
 //* FORMS
 // <form-reference>.reset() resets all input fields once form is submitted
 
+//* OBJECTS
+// object shorthand notation -> when key and value pairs are named the same only one of them is needed
+
 // -----------------
 
 // function declaration:

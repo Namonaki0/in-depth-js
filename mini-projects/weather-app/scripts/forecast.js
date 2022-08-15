@@ -1,16 +1,22 @@
-import { key } from "./key.js";
+const key = "8ltnlvaVQTAHAVd3xZ96CyRQHyfKh7FO";
+
+const getCurrentWeather = async (locationId) => {
+  const baseUrl = "http://dataservice.accuweather.com/currentconditions/v1/";
+  const query = `${locationId}?apikey=${key}`;
+
+  const response = await fetch(baseUrl + query);
+  const data = await response.json();
+
+  return data[0];
+};
 
 const getLocationInfo = async (location) => {
   const baseUrl =
     "http://dataservice.accuweather.com/locations/v1/cities/search";
   const query = `?apikey=${key}&q=${location}`;
 
-  const result = await fetch(baseUrl + query);
-  const data = await result.json();
+  const response = await fetch(baseUrl + query);
+  const data = await response.json();
 
-  return data;
+  return data[0];
 };
-
-getLocationInfo("london")
-  .then((data) => console.log(data[0]))
-  .catch((err) => console.log(err));
