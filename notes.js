@@ -17,6 +17,14 @@
 
 //* PRIMITIVE TYPES
 // numbers, strings, booleans, null, undefined, symbols
+// JS wraps primitive values in a temporary wrapper object until methods are executed, returning the value and unwrapping these values afterwards - all done under the hood
+
+// STRINGS, NUMBER, BOLLEAN
+// const name = new String("John") -> string constructor
+// new Number(3)
+// new Boolean(true)
+
+// the only primitive types that don't have a wrapper object are null & undefined - they don't have access to properties or methods
 
 //* REFERENCE TYPES
 // all types of objects -> object literals, arrays, functions, dates and all other objects
@@ -55,6 +63,10 @@
 
 //* OBJECTS
 // object shorthand notation -> when key and value pairs are named the same only one of them is needed
+// const userOne = new Object() -> object contructor - same as -> const userOne = {}
+
+//* ARRAYS
+// const ages = new Array(30, 50, 21) -> array construtor function - same as -> const ages = [] for creating arrays
 
 // -----------------
 
