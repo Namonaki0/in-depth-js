@@ -5,6 +5,12 @@
 // method chaining
 // prototype chain
 
+//* PROTOTYPES
+// every object in JS has a prototype
+// prototypes contain all the methods for that object type
+// Date prototype -> getDay(), getMonth(), etc...
+// Array prototype -> sort(), filter(), etc...
+
 // ----------------------------------------------------------
 
 //? TERMINOLOGY
@@ -31,8 +37,7 @@
 
 //* STACK & HEAP -> the way these types are stored in memory
 // primitive types are stored on the stack -> quicker execution but less memory
-// reference types are stored on the heap -> more space available but slower execution -> things like arrays will have a pointer
-// referencing the variable on the stack
+// reference types are stored on the heap -> more space available but slower execution -> things like arrays will have a pointer referencing the variable on the stack
 
 //* DOM
 // root node (html) -> element nodes -> text nodes

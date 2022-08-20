@@ -135,7 +135,7 @@ const addNameFunc = () => {
 
 // #######################
 
-//? CALLBACK FUNCTION - premise
+//? CALLBACK FUNCTION
 //? arrow functions - ES6
 
 const logIt = (myFunc) => {
