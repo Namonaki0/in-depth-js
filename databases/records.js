@@ -1,25 +1,45 @@
 const form = document.querySelector(".record-form");
-const recordInput = form.querySelector(".record-input");
+const recordArtistInput = form.querySelector(".record-artist-input");
+const recordNameInput = form.querySelector(".record-name-input");
 const ul = document.querySelector("ul");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log(e);
-});
 
 const addToList = (record) => {
   let time = record.release_date.toDate();
   let html = `
     <li>${record.artist}</li>
+    <span>${record.name}</span>
     <span>${time}</span>
   `;
 
   ul.innerHTML += html;
 };
 
+// get snapshot of "records" collection - returned as a promise
 db.collection("records")
   .get()
   .then((snapshot) => {
     snapshot.docs.forEach((doc) => addToList(doc.data()));
   })
   .catch((err) => console.log(err));
+
+// add documents to db
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const now = new Date();
+
+  const record = {
+    artist: recordArtistInput.value,
+    name: recordNameInput.value,
+    release_date: firebase.firestore.Timestamp.fromDate(now),
+  };
+
+  db.collection("records")
+    .add(record)
+    .then(() => {
+      console.log("record info added");
+    })
+    .catch((err) => console.log(err));
+
+  form.reset();
+});
