@@ -4,7 +4,6 @@ const recordNameInput = form.querySelector(".record-name-input");
 const ul = document.querySelector("ul");
 
 const addToList = (record, id) => {
-  console.log(id);
   let time = record.release_date.toDate();
   let html = `
     <div data-id=${id}>
@@ -18,13 +17,37 @@ const addToList = (record, id) => {
   ul.innerHTML += html;
 };
 
+///////////////////////////////
 // get snapshot of "records" collection - returned as a promise
-db.collection("records")
-  .get()
-  .then((snapshot) => {
-    snapshot.docs.forEach((doc) => addToList(doc.data(), doc.id));
-  })
-  .catch((err) => console.log(err));
+// db.collection("records")
+//   .get()
+//   .then((snapshot) => {
+//     snapshot.docs.forEach((doc) => addToList(doc.data(), doc.id));
+//   })
+//   .catch((err) => console.log(err));
+//////////////////////////////
+
+// get snapshot of current "records" collection
+db.collection("records").onSnapshot((snapshot) => {
+  snapshot.docChanges().forEach((change) => {
+    const doc = change.doc;
+    if (change.type === "added") {
+      addToList(doc.data(), doc.id);
+    } else if (change.type === "removed") {
+      deleteRecord(doc.id);
+    }
+  });
+});
+
+// updates UI when record removed
+const deleteRecord = (id) => {
+  const recordList = document.querySelectorAll("li");
+  recordList.forEach((record) => {
+    if (record.getAttribute("data-id") === id) {
+      record.remove();
+    }
+  });
+};
 
 // add documents to db
 form.addEventListener("submit", (e) => {
@@ -53,5 +76,6 @@ ul.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     const recordID = e.target.parentElement.getAttribute("data-id");
     db.collection("records").doc(recordID).delete();
+    console.log("deleted");
   }
 });
