@@ -2,6 +2,7 @@ const form = document.querySelector(".record-form");
 const recordArtistInput = form.querySelector(".record-artist-input");
 const recordNameInput = form.querySelector(".record-name-input");
 const ul = document.querySelector("ul");
+const unsubBtn = document.querySelector(".unsub-btn");
 
 const addToList = (record, id) => {
   let time = record.release_date.toDate();
@@ -9,8 +10,8 @@ const addToList = (record, id) => {
     <div data-id=${id}>
       <li>${record.artist}</li>
       <span>${record.name}</span>
-      <span>${time}</span>
       <button style="background:red; color:white; cursor:pointer">delete</button>
+      <span style="display: block">${time}</span>
     </div>
   `;
 
@@ -28,7 +29,8 @@ const addToList = (record, id) => {
 //////////////////////////////
 
 // get snapshot of current "records" collection
-db.collection("records").onSnapshot((snapshot) => {
+const unsubscribe = db.collection("records").onSnapshot((snapshot) => {
+  // console.log(snapshot.docChanges);
   snapshot.docChanges().forEach((change) => {
     const doc = change.doc;
     if (change.type === "added") {
@@ -41,7 +43,7 @@ db.collection("records").onSnapshot((snapshot) => {
 
 // updates UI when record removed
 const deleteRecord = (id) => {
-  const recordList = document.querySelectorAll("li");
+  const recordList = document.querySelectorAll("div");
   recordList.forEach((record) => {
     if (record.getAttribute("data-id") === id) {
       record.remove();
@@ -78,4 +80,10 @@ ul.addEventListener("click", (e) => {
     db.collection("records").doc(recordID).delete();
     console.log("deleted");
   }
+});
+
+// unsubscribe from real-time changes
+unsubBtn.addEventListener("click", () => {
+  unsubscribe();
+  console.log("unsubscribed from changes");
 });
