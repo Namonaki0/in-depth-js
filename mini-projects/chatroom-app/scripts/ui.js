@@ -6,10 +6,15 @@ class ChatUI {
   }
 
   render(data) {
+    const dateFormat = dateFns.distanceInWordsToNow(data.created_at.toDate(), {
+      addSuffix: true,
+    });
     const html = `
-        <li class="username">username: ${data.username}</li>
-        <li class="message">message: ${data.message}</li>
-        <div class="time">${data.created_at.toDate()}</div>
+      <div class="individual-chat">
+        <li class="username">${data.username}</li>
+        <li class="message">${data.message}</li>
+        <div class="chat-date">${dateFormat}</div>
+      </div>
       `;
 
     this.list.innerHTML += html;

@@ -1,0 +1,38 @@
+.container {
+    max-width: 800px;
+}
+
+.btn {
+    background-color: rgb(163, 163, 163);
+    color: white;
+    padding: .5rem .8rem;
+    text-align: center;
+}
+
+.individual-chat {
+    padding: .2rem .5rem;
+    
+}
+
+ul {
+    list-style: none;
+    border: 1px solid grey;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.username {
+    font-weight: bold;
+    display: inline;
+}
+
+.message {
+    display: inline;
+    margin-left: .2rem;
+}
+
+.chat-date {
+    opacity: .6;
+    font-size: .8rem;
+    margin-left: 2px;
+}

@@ -10,51 +10,54 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./chatroom-app.css" />
     <title>chatroom-app</title>
   </head>
   <body>
     <!-- container & title -->
     <div class="container my-4">
       <h1 class="my-4 text-center">WELCOME</h1>
-    </div>
-    <!-- chatroom buttons -->
-    <div class="chat-rooms mb-3 text-center">
-      <div class="my-2">chatrooms</div>
-      <button class="btn" id="general">#general</button>
-      <button class="btn" id="gaming">#gaming</button>
-      <button class="btn" id="music">#music</button>
-      <button class="btn" id="movies">#movies</button>
-    </div>
-    <!-- chat list / window -->
-    <div class="chat-window">
-      <ul class="chat-list list-group"></ul>
-    </div>
-    <!-- new chat form -->
-    <form class="new-chat my-3">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">message</div>
-        </div>
-        <input type="text" id="text" class="form-control" required />
-        <div class="input-group-append">
-          <input type="submit" class="btn" value="send" />
-        </div>
-      </div>
-    </form>
-    <!-- update name form -->
-    <form class="new-name my-3">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">update-name:</div>
-        </div>
-        <input type="text" id="name" class="form-control" required />
-        <div class="input-group-append">
-          <input type="submit" class="btn" value="update" />
-        </div>
-      </div>
-      <div class="update-msg"></div>
-    </form>
 
+      <!-- chatroom buttons -->
+      <div class="chat-rooms mb-3 text-center">
+        <div class="my-2">chatrooms</div>
+        <button class="btn" id="general">#general</button>
+        <button class="btn" id="gaming">#gaming</button>
+        <button class="btn" id="music">#music</button>
+        <button class="btn" id="movies">#movies</button>
+      </div>
+      <!-- chat list / window -->
+      <div class="chat-window">
+        <ul class="chat-list list-group"></ul>
+      </div>
+      <!-- new chat form -->
+      <form class="new-chat my-3">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">message</div>
+          </div>
+          <input type="text" id="text" class="form-control" required />
+          <div class="input-group-append">
+            <input type="submit" class="btn" value="send" />
+          </div>
+        </div>
+      </form>
+      <!-- update name form -->
+      <form class="new-name my-3">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">update-name:</div>
+          </div>
+          <input type="text" id="name" class="form-control" required />
+          <div class="input-group-append">
+            <input type="submit" class="btn" value="update" />
+          </div>
+        </div>
+        <div class="update-msg"></div>
+      </form>
+    </div>
+
+    <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
 
