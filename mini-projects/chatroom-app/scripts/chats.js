@@ -1,5 +1,4 @@
-// adding new chat documents
-
+//? adding new chat documents
 class Chatroom {
   constructor(room, username) {
     this.room = room;
@@ -8,7 +7,7 @@ class Chatroom {
     this.unsub;
   }
   async addChat(message) {
-    // format chat object
+    //? format chat object
     const now = new Date();
     const chat = {
       message,
@@ -16,12 +15,12 @@ class Chatroom {
       room: this.room,
       created_at: firebase.firestore.Timestamp.fromDate(now),
     };
-    // save chat document
+    //? save chat document
     const response = await this.chats.add(chat);
     return response;
   }
 
-  // setting up a real-time listener to get new chats
+  //? setting up a real-time listener to get new chats
   getChats(callback) {
     this.unsub = this.chats
       .where("room", "==", this.room)
@@ -35,21 +34,18 @@ class Chatroom {
       });
   }
 
-  // updates username
+  //? updates username
   updateUsername(username) {
     this.username = username;
+    localStorage.setItem("username", username);
   }
 
   // updates room
   updateRoom(room) {
     this.room = room;
-    console.log("room updated");
+    console.log(`room updated to ${room}`);
     if (this.unsub) {
       this.unsub();
     }
   }
 }
-
-// .addChat("Hi there")
-// .then(() => console.log("chat added"))
-// .catch((err) => console.log(err));
