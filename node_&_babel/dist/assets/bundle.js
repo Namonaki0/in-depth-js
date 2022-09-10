@@ -1,1 +1,1 @@
-console.log("Mike");
+(()=>{"use strict";const e=document.querySelector("body"),o=[{name:"Mike",premium:!0},{name:"Maria",premium:!0},{name:"Ross",premium:!1},{name:"Dario",premium:!1},{name:"Josh",premium:!0}],m=(e=>e.filter((e=>e.premium)))(o);console.log(m,o),e.style.background="orange",(o=>{const m=document.createElement("h1");m.textContent="Hello",e.appendChild(m)})(),console.log((5,Math.ceil(1e4*Math.random(5)))),console.log("Mike")})();
